@@ -39,11 +39,11 @@ jobs:
           NAME=$(cat ./app/AppManifest.json | jq -r '.name')
           echo "app_name=$NAME" >> $GITHUB_OUTPUT
 
-  build-image-multiarch:
+  build-image-amd64:
     uses: ./.github/workflows/build-docker-image.yml
     needs: [get-app-name]
     with:
-      platform: multiarch
+      platform: amd64
       app_name: ${{ needs.get-app-name.outputs.app_name }}
 
   merge-test-results:
