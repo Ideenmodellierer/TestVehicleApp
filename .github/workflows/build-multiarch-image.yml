@@ -49,7 +49,7 @@ jobs:
   merge-test-results:
     runs-on: ubuntu-22.04
     name: Merge Trivy results
-    needs: build-image-multiarch
+    needs: build-image-amd64
     steps:
       - name: Merge Artifacts
         uses: actions/upload-artifact/merge@v4
